@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Body Mass Index Calculator</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="logo">
+        <img src="/starter-code/assets/images/logo.svg" alt="" />
+      </div>
+      <section class="measure-section">
+        <div class="description">
+          <h1>Body Mass Index Calculator</h1>
+          <p>
+            Better understand your weight in relation to your height using our
+            body mass index (BM) calculator. While BMI is not the sole
+            determinant of a healthy weight, it offers a valuable starting point
+            to evaluate your overall health and well-being.
+          </p>
+        </div>
+        <div class="calculator">
+          <span>Enter your details below</span>
+          <div class="measure-type">
+            <div class="metric">
+              <input
+                type="radio"
+                name="details"
+                id="metric"
+                value="metric"
+                checked
+              />
+              <label for="metric">Metric</label>
+            </div>
+            <div class="imperial">
+              <input
+                type="radio"
+                name="details"
+                id="imperial"
+                value="imperial"
+              />
+              <label for="imperial">Imperial</label>
+            </div>
+          </div>
+          <div class="details">
+            <div class="cm">
+              <div class="cm-value">cm</div>
+              <input type="number" id="height" placeholder="0" />
+            </div>
+            <div class="kg">
+              <div class="kg-value">kg</div>
+              <input type="number" id="weight" placeholder="0" />
+            </div>
+            <div class="ft">
+              <div class="ft-value">ft</div>
+              <input
+                type="number"
+                id="imperial_height1"
+                value="imperial_height1"
+                placeholder="0"
+              />
+            </div>
+            <div class="in">
+              <div class="in-value">in</div>
+              <input
+                type="number"
+                id="imperial_height2"
+                value="imperial_height2"
+                placeholder="0"
+              />
+            </div>
+            <div class="st">
+              <div class="st-value">st</div>
+              <input
+                type="number"
+                id="imperial_weight1"
+                value="imperial_weight1"
+                placeholder="0"
+              />
+            </div>
+            <div class="lbs">
+              <div class="lbs-value">lbs</div>
+              <input
+                type="number"
+                id="imperial_weight2"
+                value="imperial_weight2"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <button
+            class="calc-bmi-metric"
+            type="button"
+            onclick="getMetricMeasurements()"
+          >
+            Calulate BMI
+          </button>
+
+          <button
+            class="calc-bmi-imperial"
+            type="button"
+            onclick="getImperialMeasurements()"
+          >
+            Calulate BMI
+          </button>
+          <!-- <div class="BMI-placeholder-empty">
+            <p>Welcome</p>
+            <p>
+              Enter your height and weight and you’ll see your BMI result here
+            </p>
+          </div> -->
+          <div class="BMI-placeholder-full">
+            <p>Your BMI is...</p>
+            <div id="BMI-score" class="BMI-score"></div>
+            <p class="BMI-range">
+              Your BMI suggests you're
+              <!-- add classification -->. Your ideal weight is between
+              <!-- add range -->.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <img src="" alt="" />
+        <h2>What your BMI result means</h2>
+        <p>
+          A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
+          Maintaining a healthy weight may lower your chances of experiencing
+          health issues later on, such as obesity and type 2 diabetes. Aim for a
+          nutritious diet with reduced fat and sugar content, incorporating
+          ample fruits and vegetables. Additionally, strive for regular physical
+          activity, ideally about 30 minutes daily for five days a week.
+        </p>
+      </section>
+      <section>
+        <div>
+          <h3>Healthy eating</h3>
+          <p>
+            Healthy eating promotes weight control, disease prevention, better
+            digestion, immunity, mental clarity, and mood.
+          </p>
+        </div>
+        <div>
+          <h3>Regular exercise</h3>
+          <p>
+            Exercise improves fitness, aids weight control, elevates mood, and
+            reduces disease risk, fostering wellness and longevity.
+          </p>
+        </div>
+        <div>
+          <h3>Adequate sleep</h3>
+          <p>
+            Sleep enhances mental clarity, emotional stability, and physical
+            wellness, promoting overall restoration and rejuvenation.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>Limitations of BMI</h2>
+        <p>
+          Although BMI is often a practical indicator of healthy weight, it is
+          not suited for every person. Specific groups should carefully consider
+          their BMI outcomes, and in certain cases, the measurement may not be
+          beneficial to use.
+        </p>
+        <div>
+          <h4>Gender</h4>
+          <p>
+            The development and body fat composition of girls and boys vary with
+            age. Consequently, a child's age and gender are considered when
+            evaluating their BMI
+          </p>
+        </div>
+        <div>
+          <h4>Age</h4>
+          <p>
+            In aging individuals, increased body fat and muscle loss may cause
+            BMI to underestimate body fat content.
+          </p>
+        </div>
+        <div>
+          <h4>Muscle</h4>
+          <p>
+            BMI may misclassify muscular individuals as overweight or obese, as
+            it doesn't differentiate muscle from fat.
+          </p>
+        </div>
+        <div>
+          <h4>Pregnancy</h4>
+          <p>
+            Expectant mothers experience weight gain due to their growing baby.
+            Maintaining a healthy pre-pregnancy BMI is advisable to minimise
+            health risks for both mother and child.
+          </p>
+        </div>
+        <div>
+          <h4>Race</h4>
+          <p>
+            Certain health concerns may affect individuals of some Black and
+            Asian origins at lower BMIs than others. To learn more, it is
+            advised to discuss this with your GP or practice nurse
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

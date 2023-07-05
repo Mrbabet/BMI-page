@@ -1,0 +1,177 @@
+/* Chrome, Safari, Edge, Opera */
+*,
+*::before,
+*::after {
+  /* reset the box sizing  */
+  box-sizing: border-box;
+}
+
+* {
+  /* getting rid of all the margins and paddings */
+  margin: 0;
+  padding: 0;
+
+  /* set font: inherit on everything  */
+  /* this will take away all the font-sizes and font-wights  */
+  /* which sort of reinforces having to style things through css instead of using heading levels and elements to do it  */
+  /* font: inherit; */
+}
+
+/* make sure that the img, picture, svg, video are responsive */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  /* make form-elements inherit the font-properties */
+  /* there is no need to use this ..  
+    if you are going to use the:  
+        * {
+            margin: 0;
+            padding: 0;
+            font: inherit;
+        }
+    */
+
+  font: inherit;
+}
+
+body {
+  /* set a min-height on the body  */
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+html {
+  /* this will set a default dark mode on your site */
+  /* so it will follow the user preference, because it sets  */
+  /* all the user agent styles for everything including form-elements */
+  /* to a dark-more right off the bat*/
+  color-scheme: dark light;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  cursor: pointer;
+}
+input[type="number"] {
+  display: none;
+  padding: 20px;
+  padding-right: 40px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #d8e2e7;
+  font-weight: bold;
+  color: black;
+}
+input[type="number"].active {
+  display: inline;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  margin: 24px;
+}
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+}
+.measure-section .description {
+  margin-top: 24px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.measure-section .description p {
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+.calculator {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.measure-type {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  padding-inline: 16px;
+}
+.measure-type label {
+  display: block;
+  position: relative;
+
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.measure-type .metric {
+  display: flex;
+  gap: 16px;
+}
+.measure-type .imperial {
+  display: flex;
+  gap: 16px;
+}
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+}
+.cm,
+.kg,
+.ft,
+.in,
+.st,
+.lbs {
+  position: relative;
+}
+.cm .cm-value,
+.kg .kg-value {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-50%, 50%);
+}
+.ft .ft-value,
+.in .in-value,
+.st .st-value,
+.lbs .lbs-value {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-50%, 50%);
+}
+.calc-bmi {
+}
