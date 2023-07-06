@@ -41,8 +41,6 @@ const measureChecked = function () {
   st.style.display = isMetricSelected ? "none" : "block";
   lbs.style.display = isMetricSelected ? "none" : "block";
 };
-imperial.addEventListener("change", measureChecked);
-metric.addEventListener("change", measureChecked);
 measureChecked();
 
 const CalcBMI = function (weight, height, isMetric) {
@@ -51,6 +49,13 @@ const CalcBMI = function (weight, height, isMetric) {
   } else {
     return (weight / (height * height)) * 703;
   }
+};
+const WeightRange = function (BMI, height, isMetric) {
+  if (isMetric) {
+    return (BMI * (height / 100) * (height / 100)).toFixed(1);
+  } else {
+  }
+  return (BMI * (height / 100) * (height / 100)).toFixed(1);
 };
 
 const getMeasurements = function (isMetric) {
@@ -64,37 +69,36 @@ const getMeasurements = function (isMetric) {
   const inputWeight = isMetric ? Number(metricWeight.value) : imperialWeight;
   const inputHeight = isMetric ? Number(metricHeight.value) : imperialHeight;
 
-  const BMI = CalcBMI(inputHeight, inputWeight, isMetric);
+  const BMI = CalcBMI(inputWeight, inputHeight, isMetric);
   console.log(BMI, inputHeight, inputWeight);
 
-  BMIScore.textContent = BMI.toFixed(2);
+  BMIScore.textContent = BMI.toFixed(1);
 
-  if (CalcBMI(inputWeight, inputHeight) < 18.5) {
+  if (BMI < 18.5) {
     BMIPlaceholder.textContent = `Your BMI is...`;
     BMIRange.textContent = ` Your BMI suggests you're
-  Underweight. Your ideal weight is between
-  <!-- add range -->.`;
-  } else if (
-    CalcBMI(inputWeight, inputHeight) >= 18.5 &&
-    CalcBMI(inputWeight, inputHeight) <= 24.9
-  ) {
+  Underweight. Your ideal weight is between ${WeightRange(
+    18.5,
+    inputHeight
+  )} and ${WeightRange(24.9, inputHeight)}
+  kg`;
+  } else if (BMI >= 18.5 && BMI <= 24.9) {
     BMIPlaceholder.textContent = `Your BMI is...`;
     BMIRange.textContent = ` Your BMI suggests you're
   Healthy weight. Your ideal weight is between
-  <!-- add range -->.`;
-  } else if (
-    CalcBMI(inputWeight, inputHeight) >= 25 &&
-    CalcBMI(inputWeight, inputHeight) <= 29.9
-  ) {
+  ${WeightRange(18.5, inputHeight)} and ${WeightRange(24.9, inputHeight)}.`;
+  } else if (BMI >= 25 && BMI <= 29.9) {
     BMIPlaceholder.textContent = `Your BMI is...`;
     BMIRange.textContent = ` Your BMI suggests you're
   Overweight. Your ideal weight is between
-  <!-- add range -->.`;
-  } else if (CalcBMI(inputWeight, inputHeight) > 30) {
+  ${WeightRange(18.5, inputHeight)} and ${WeightRange(24.9, inputHeight)}.`;
+  } else if (BMI > 30) {
     BMIPlaceholder.textContent = `Your BMI is...`;
     BMIRange.textContent = ` Your BMI suggests you're
-  Obese. Your ideal weight is between
-  <!-- add range -->.`;
+  Obese. Your ideal weight is between ${WeightRange(
+    18.5,
+    inputHeight
+  )} and ${WeightRange(24.9, inputHeight)}.`;
   } else {
     BMIScore.textContent = "";
     BMIPlaceholder.textContent = `Welcome
@@ -102,7 +106,7 @@ const getMeasurements = function (isMetric) {
   `;
   }
 
-  if (BMI === Infinity) {
+  if (BMI === 0) {
     BMIScore.textContent = "";
     BMIPlaceholder.textContent = `Welcome
   Enter your height and weight and you’ll see your BMI result here
@@ -110,6 +114,9 @@ const getMeasurements = function (isMetric) {
     BMIRange.textContent = "";
   }
 };
+
+imperial.addEventListener("change", measureChecked);
+metric.addEventListener("change", measureChecked);
 
 metricWeight.addEventListener("blur", function () {
   getMeasurements(true);
