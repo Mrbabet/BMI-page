@@ -84,15 +84,17 @@ input[type="number"] {
 input[type="number"].active {
   display: inline;
 }
+label,
+div {
+  font-family: "Inter", sans-serif;
+}
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.wrapper {
-  margin: 24px;
-}
+
 h1 {
   color: var(--gunmetal, #253347);
   text-align: center;
@@ -236,6 +238,21 @@ p {
   flex-direction: column;
   align-items: flex-start;
   gap: 40px;
+  position: relative;
+}
+.tips-section-mask {
+  opacity: 1;
+  background: var(
+    --gradient-1,
+    linear-gradient(315deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%)
+  );
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  padding-inline: 24px;
 }
 .tip {
   display: flex;
@@ -264,6 +281,7 @@ p {
   align-items: center;
   align-self: stretch;
   text-align: center;
+  gap: 56px;
 }
 
 .limitations {
