@@ -140,14 +140,14 @@ p {
   font-weight: 400;
   line-height: 150%;
 }
-.measure-section .description {
+.hero .description {
   margin-top: 24px;
   margin-bottom: 48px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.measure-section .description p {
+.hero .description p {
   font-size: 16px;
   line-height: 150%;
   text-align: center;
@@ -218,9 +218,14 @@ p {
   right: 0;
   transform: translate(-50%, 50%);
 }
-.BMI-meaning {
+.your-result {
   display: flex;
-  width: 328px;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 72px;
+}
+.your-result-text {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
@@ -228,7 +233,6 @@ p {
 .tips-section {
   margin-block: 56px;
   display: flex;
-
   flex-direction: column;
   align-items: flex-start;
   gap: 40px;
@@ -241,9 +245,15 @@ p {
   gap: 32px;
   align-self: stretch;
 }
+.tip-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
 .bmi-limitations {
   display: flex;
-
   flex-direction: column;
   align-items: flex-start;
   gap: 56px;
@@ -252,15 +262,20 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
   align-self: stretch;
-}
-.bmi-limitations-text p {
   text-align: center;
+}
+
+.limitations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
 }
 .limitation {
   display: flex;
-  padding: 0px 24px 24px 0px;
+  padding: 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
@@ -269,10 +284,16 @@ p {
   background: var(--pure-white, #fff);
   box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
 }
-.limitations {
+.limitation-inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+.limitation-inner-flex {
+  display: flex;
+  align-items: center;
   gap: 16px;
   align-self: stretch;
 }
