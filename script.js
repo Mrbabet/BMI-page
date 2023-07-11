@@ -101,15 +101,17 @@ const getMeasurements = function (isMetric) {
   )} and ${WeightRange(24.9, inputHeight)}.`;
   } else {
     BMIScore.textContent = "";
-    BMIPlaceholder.textContent = `Welcome
-  Enter your height and weight and you’ll see your BMI result here
+    BMIPlaceholder.textContent = `Welcome! <br/>
+
+    Enter your height and weight and you’ll see your BMI result here
   `;
   }
 
   if (BMI === 0) {
     BMIScore.textContent = "";
-    BMIPlaceholder.textContent = `Welcome
-  Enter your height and weight and you’ll see your BMI result here
+    BMIPlaceholder.html = `Welcome! <br/>>
+
+    Enter your height and weight and you’ll see your BMI result here
   `;
     BMIRange.textContent = "";
   }

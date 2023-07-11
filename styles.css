@@ -238,6 +238,38 @@ p {
   align-items: flex-start;
   gap: 32px;
 }
+.BMI-value {
+  border-radius: 16px;
+  background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.BMI-range {
+  color: white;
+  font-size: 14px;
+  font-family: Inter;
+  line-height: 150%;
+}
+.BMI-score {
+  color: white;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 110%;
+  letter-spacing: -2.4px;
+  margin-bottom: 16px;
+}
+.BMI-placeholder {
+  color: white;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
 .tips-section {
   margin-block: 56px;
   display: flex;
